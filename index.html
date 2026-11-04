@@ -1,126 +1,554 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Jeff Fernandes — Currículo</title>
-<meta name="description" content="Currículo de Jeff Fernandes">
+<title>Jefferson Fernandes | Senior Software Engineer</title>
+<meta name="description" content="Senior Software Engineer: Ruby on Rails, PostgreSQL and data engineering. Remote work for Canadian and Brazilian companies.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Newsreader:wght@500;600&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #f5f6fa; --card: #fff; --text: #1f2430; --muted: #5d6475;
-    --accent: #4f46e5; --line: #e4e6ee;
-  }
-  @media (prefers-color-scheme: dark) {
-    :root { --bg: #0f1117; --card: #181b24; --text: #e8eaf0; --muted: #9aa1b2; --accent: #8b87ff; --line: #2a2e3b; }
+    --paper: #f5f6f1;
+    --card: #ffffff;
+    --ink: #14201c;
+    --ink-soft: #505c56;
+    --rule: #d3d9d0;
+    --moss: #2f5d50;
+    --coral: #e4572e;
+    --teal: #1f8a8a;
+    --plum: #6b3e8f;
+    --amber: #c98a0b;
+    --green: #2f7d4f;
+    --rose: #d6336c;
+    --mint: #e3f2ee;
+    --sans: "IBM Plex Sans", system-ui, sans-serif;
+    --mono: "IBM Plex Mono", ui-monospace, monospace;
+    --serif: "Newsreader", Georgia, serif;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; padding: 24px 16px; }
-  .page { max-width: 860px; margin: 0 auto; background: var(--card); border-radius: 14px; box-shadow: 0 8px 30px rgba(0,0,0,.08); overflow: hidden; }
-  header { background: linear-gradient(135deg, #4f46e5, #7c3aed); color: #fff; padding: 40px; }
-  header h1 { font-size: 2rem; }
-  header .role { opacity: .9; font-size: 1.1rem; margin-top: 4px; }
-  .contact { display: flex; flex-wrap: wrap; gap: 8px 20px; margin-top: 18px; font-size: .92rem; }
-  .contact a { color: #fff; text-decoration: none; border-bottom: 1px dotted rgba(255,255,255,.6); }
-  main { padding: 32px 40px 40px; }
-  section { margin-bottom: 30px; }
-  h2 { font-size: 1.05rem; text-transform: uppercase; letter-spacing: .08em; color: var(--accent); border-bottom: 2px solid var(--line); padding-bottom: 6px; margin-bottom: 14px; }
-  .item { margin-bottom: 18px; }
-  .item-head { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 4px; }
-  .item-head strong { font-size: 1.02rem; }
-  .date { color: var(--muted); font-size: .9rem; }
-  .sub { color: var(--muted); font-size: .95rem; }
-  ul { padding-left: 20px; margin-top: 6px; }
-  li { margin-bottom: 3px; }
-  .skills { display: flex; flex-wrap: wrap; gap: 8px; }
-  .skills span { background: color-mix(in srgb, var(--accent) 14%, transparent); color: var(--accent); padding: 4px 12px; border-radius: 999px; font-size: .88rem; font-weight: 500; }
-  .actions { text-align: center; padding: 0 0 28px; }
-  button, .actions a { background: var(--accent); color: #fff; border: 0; padding: 10px 20px; border-radius: 8px; font-size: .95rem; cursor: pointer; text-decoration: none; margin: 0 4px; }
-  @media (max-width: 600px) { header, main { padding: 24px 20px; } header h1 { font-size: 1.6rem; } }
-  @media print {
-    body { background: #fff; padding: 0; }
-    .page { box-shadow: none; border-radius: 0; }
-    .actions { display: none; }
-    header { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  html { scroll-behavior: smooth; }
+  body { background: var(--paper); color: var(--ink); font-family: var(--sans); font-size: 15px; line-height: 1.55; }
+  a { color: var(--moss); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+  a:hover { color: var(--ink); }
+  :focus-visible { outline: 2px solid var(--coral); outline-offset: 2px; border-radius: 3px; }
+  button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
+  .wrap { max-width: 980px; margin: 0 auto; padding: 0 24px; }
+  section[id] { scroll-margin-top: 64px; }
+
+  /* Nav */
+  .progress { position: fixed; top: 0; left: 0; height: 3px; width: 100%; background: linear-gradient(90deg, var(--coral), var(--amber), var(--teal), var(--plum)); transform-origin: 0 50%; transform: scaleX(0); z-index: 20; }
+  .topnav { position: sticky; top: 0; z-index: 10; background: rgba(245,246,241,.94); backdrop-filter: blur(6px); border-bottom: 1px solid var(--rule); }
+  .topnav .wrap { display: flex; align-items: center; justify-content: space-between; gap: 14px; padding-top: 10px; padding-bottom: 10px; }
+  .brand { font-family: var(--serif); font-weight: 600; font-size: 1.05rem; color: var(--ink); text-decoration: none; }
+  .topnav ul { list-style: none; display: flex; gap: 4px; overflow-x: auto; scrollbar-width: none; }
+  .topnav ul::-webkit-scrollbar { display: none; }
+  .topnav a { display: block; padding: 6px 12px; border-radius: 999px; text-decoration: none; font-size: .86rem; color: var(--ink-soft); white-space: nowrap; }
+  .topnav a:hover { background: var(--mint); color: var(--ink); }
+  .topnav a[aria-current="true"] { background: var(--ink); color: var(--paper); }
+
+  /* Hero */
+  .hero { padding: 56px 0 40px; background: linear-gradient(135deg, var(--mint), #fbf3d6 60%, #ece4f5); border-bottom: 1px solid var(--rule); }
+  .hero h1 { font-family: var(--serif); font-weight: 600; font-size: clamp(2.2rem, 5vw, 3.4rem); line-height: 1.05; }
+  .hero-row { display: flex; align-items: center; gap: 36px; flex-wrap: wrap; }
+  .avatar { flex: 0 0 auto; width: 168px; }
+  .avatar svg { width: 100%; height: auto; display: block; filter: drop-shadow(0 8px 18px rgba(20,32,28,.18)); }
+  .hero-text { flex: 1; min-width: 260px; }
+  .role { margin-top: 8px; font-size: 1.05rem; color: var(--moss); font-weight: 500; }
+  .intro { margin-top: 16px; color: var(--ink-soft); max-width: 60ch; }
+  .markets { margin-top: 14px; display: flex; flex-wrap: wrap; gap: 8px; }
+  .market { font-size: .85rem; padding: 5px 12px; background: var(--card); border: 1px solid var(--rule); border-radius: 999px; }
+  .focus { margin-top: 22px; display: flex; flex-wrap: wrap; gap: 8px; }
+  .focus button { font-family: var(--mono); font-size: .82rem; padding: 7px 13px; border-radius: 6px; background: var(--card); border: 1px solid var(--ink); }
+  .focus button:hover { background: var(--ink); color: var(--paper); }
+  .hero-links { margin-top: 22px; display: flex; flex-wrap: wrap; gap: 8px 18px; font-size: .92rem; }
+
+  /* Sections */
+  section.block { padding: 56px 0; border-top: 1px solid var(--rule); }
+  .block h2 { font-family: var(--serif); font-weight: 600; font-size: 1.75rem; margin-bottom: 20px; }
+
+  /* Tech filter */
+  .stack-controls { display: flex; flex-wrap: wrap; gap: 8px; }
+  .tech { font-family: var(--mono); font-size: .82rem; padding: 6px 12px; border: 1.5px solid var(--c); border-radius: 999px; background: var(--card); transition: background .2s, color .2s; }
+  .tech small { opacity: .65; margin-left: 5px; }
+  .tech:hover { background: var(--c); color: #fff; }
+  .tech[aria-pressed="true"] { background: var(--c); color: #fff; }
+  .filter-status { margin-top: 14px; display: flex; gap: 14px; align-items: center; font-size: .9rem; color: var(--ink-soft); min-height: 1.8rem; }
+  .clear { color: var(--moss); text-decoration: underline; display: none; }
+  .clear.show { display: inline; }
+
+  /* Experience */
+  .jobs { list-style: none; }
+  .job { background: var(--card); border: 1px solid var(--rule); border-radius: 10px; padding: 22px 24px; margin-bottom: 18px; transition: opacity .3s; }
+  .job.dim { opacity: .35; }
+  .job-head { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 20px; align-items: flex-start; }
+  .job h3 { font-family: var(--serif); font-weight: 600; font-size: 1.25rem; line-height: 1.25; }
+  .company { font-weight: 500; color: var(--moss); }
+  .meta { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; font-family: var(--mono); font-size: .78rem; color: var(--ink-soft); }
+  .loc { padding: 3px 8px; background: var(--paper); border-radius: 4px; }
+  .remote { padding: 3px 8px; border-radius: 4px; background: var(--green); color: #fff; font-weight: 500; }
+  .canada { background: var(--mint); color: var(--ink); border: 1px solid var(--teal); }
+  .note { margin-top: 10px; color: var(--ink-soft); font-size: .92rem; }
+  .job > .tags { margin-top: 12px; }
+  .projects { margin-top: 16px; display: grid; gap: 12px; }
+  .proj { border-left: 3px solid var(--c, var(--teal)); background: var(--paper); padding: 12px 14px; border-radius: 0 6px 6px 0; transition: opacity .3s; }
+  .proj.dim { opacity: .3; }
+  .proj.featured { background: #fdf6df; border-left-color: var(--amber); }
+  details.proj > summary { list-style: none; cursor: pointer; display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; font-size: .95rem; }
+  details.proj > summary::-webkit-details-marker { display: none; }
+  details.proj > summary::after { content: "+"; margin-left: auto; font-family: var(--mono); font-size: 1.1rem; color: var(--c, var(--ink-soft)); }
+  details.proj[open] > summary::after { content: "–"; }
+  details.proj > summary:focus-visible { outline: 2px solid var(--coral); outline-offset: 2px; }
+  .pname { font-weight: 600; }
+  .proj ul li { margin-bottom: 2px; }
+  .toggle { font-family: var(--mono); font-size: .8rem; padding: 5px 12px; border: 1px solid var(--ink); border-radius: 6px; background: var(--card); margin-bottom: 14px; }
+  .toggle:hover { background: var(--ink); color: var(--paper); }
+  .proj ul { margin: 6px 0 8px 18px; color: var(--ink-soft); font-size: .9rem; }
+  .pill { font-family: var(--mono); font-size: .7rem; font-weight: 500; padding: 2px 7px; border-radius: 4px; background: var(--amber); color: #fff; }
+
+  /* Tags (links to docs) */
+  .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .tag { font-family: var(--mono); font-size: .75rem; padding: 3px 8px; background: var(--card); border: 1px solid var(--rule); border-radius: 4px; color: var(--ink); text-decoration: none; }
+  a.tag:hover { border-color: var(--moss); color: var(--moss); }
+  .tag.hit { background: var(--amber); border-color: var(--amber); color: #fff; }
+
+  /* Education */
+  .edu { background: var(--card); border: 1px solid var(--rule); border-radius: 10px; padding: 18px 22px; }
+  .edu h3 { font-family: var(--serif); font-weight: 600; font-size: 1.1rem; }
+  .edu p { color: var(--ink-soft); font-size: .92rem; margin-top: 4px; }
+
+  /* Contact */
+  .contact { font-size: .95rem; display: flex; flex-wrap: wrap; gap: 10px 22px; }
+  footer.site { border-top: 1px solid var(--rule); padding: 24px 0 36px; font-size: .85rem; color: var(--ink-soft); }
+  footer.site .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px; }
+
+  @media (max-width: 640px) {
+    .job { padding: 18px; }
+    .topnav .wrap { flex-wrap: wrap; }
+    .topnav ul { order: 3; width: 100%; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { transition: none !important; scroll-behavior: auto !important; }
   }
 </style>
 </head>
 <body>
-<div class="page">
-  <header>
-    <h1>Jeff Fernandes</h1>
-    <div class="role">Desenvolvedor / Analista de Dados</div>
-    <div class="contact">
-      <span>📍 São Paulo, SP</span>
-      <a href="mailto:jeffs.fernandes@gmail.com">jeffs.fernandes@gmail.com</a>
-      <a href="https://github.com/offjeff91">github.com/offjeff91</a>
-      <a href="https://linkedin.com/in/seu-perfil">linkedin.com/in/seu-perfil</a>
-    </div>
-  </header>
 
-  <main>
-    <section>
-      <h2>Resumo</h2>
-      <p>Profissional com experiência em desenvolvimento de software e análise de dados, focado em transformar dados em soluções claras e úteis. Gosto de aprender rápido, trabalhar em equipe e entregar com qualidade.</p>
-    </section>
+<div class="progress" id="progress" aria-hidden="true"></div>
 
-    <section>
-      <h2>Experiência</h2>
-      <div class="item">
-        <div class="item-head"><strong>Desenvolvedor</strong><span class="date">2022 — Atual</span></div>
-        <div class="sub">Nome da Empresa · São Paulo, SP</div>
-        <ul>
-          <li>Desenvolvimento e manutenção de aplicações web.</li>
-          <li>Análise e visualização de dados para apoio à tomada de decisão.</li>
-          <li>Automação de processos, reduzindo tarefas manuais.</li>
-        </ul>
-      </div>
-      <div class="item">
-        <div class="item-head"><strong>Analista Júnior</strong><span class="date">2019 — 2022</span></div>
-        <div class="sub">Outra Empresa · São Paulo, SP</div>
-        <ul>
-          <li>Criação de relatórios e dashboards.</li>
-          <li>Tratamento e consolidação de bases de dados.</li>
-        </ul>
-      </div>
-    </section>
-
-    <section>
-      <h2>Formação</h2>
-      <div class="item">
-        <div class="item-head"><strong>Bacharelado em Sistemas de Informação</strong><span class="date">2014 — 2018</span></div>
-        <div class="sub">Nome da Universidade</div>
-      </div>
-    </section>
-
-    <section>
-      <h2>Habilidades</h2>
-      <div class="skills">
-        <span>JavaScript</span><span>HTML / CSS</span><span>Ruby</span><span>Python</span>
-        <span>SQL</span><span>Git</span><span>Análise de Dados</span><span>Chart.js</span>
-      </div>
-    </section>
-
-    <section>
-      <h2>Projetos</h2>
-      <div class="item">
-        <div class="item-head"><strong>Análise de Fila de Creche</strong><span class="date">2024</span></div>
-        <div class="sub">Visualização da evolução do tempo de atendimento por distrito (2016–2024).</div>
-        <ul><li><a href="app.html">Ver projeto</a></li></ul>
-      </div>
-    </section>
-
-    <section>
-      <h2>Idiomas</h2>
-      <ul>
-        <li>Português — nativo</li>
-        <li>Inglês — intermediário</li>
-      </ul>
-    </section>
-  </main>
-
-  <div class="actions">
-    <button onclick="window.print()">Baixar / Imprimir PDF</button>
+<nav class="topnav" aria-label="Sections">
+  <div class="wrap">
+    <a class="brand" href="#top">JF</a>
+    <ul>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#stack">Stack</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
   </div>
-</div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap hero-row">
+    <div class="avatar">
+      <svg viewBox="0 0 300 330" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Caricatura de Jefferson Fernandes">
+        <defs>
+          <clipPath id="avatarClip"><circle cx="150" cy="165" r="150"/></clipPath>
+        </defs>
+        <g clip-path="url(#avatarClip)">
+          <circle cx="150" cy="165" r="150" fill="#fbefc9"/>
+          <rect x="16" y="92" width="58" height="72" fill="#d6336c" stroke="#fff" stroke-width="6"/>
+          <rect x="226" y="80" width="58" height="72" fill="#2f7d4f" stroke="#fff" stroke-width="6"/>
+          <rect x="128" y="196" width="44" height="60" fill="#dca882"/>
+          <path d="M30 330 L44 292 Q62 250 112 238 L150 262 L188 238 Q238 250 256 292 L270 330 Z" fill="#f1e8d8" stroke="#d8ccb6" stroke-width="3"/>
+          <path d="M112 238 L150 268 L188 238 L200 256 L150 292 L100 256 Z" fill="#fffaf0" stroke="#d8ccb6" stroke-width="2"/>
+          <circle cx="150" cy="290" r="4" fill="#8a9a86"/>
+          <circle cx="91" cy="156" r="13" fill="#dca882"/>
+          <circle cx="209" cy="156" r="13" fill="#dca882"/>
+          <ellipse cx="150" cy="150" rx="58" ry="82" fill="#e8b993"/>
+          <g fill="#6b4a33">
+            <circle cx="106" cy="112" r="18"/><circle cx="122" cy="92" r="20"/><circle cx="146" cy="82" r="20"/>
+            <circle cx="170" cy="86" r="20"/><circle cx="190" cy="102" r="18"/><circle cx="202" cy="124" r="14"/>
+            <circle cx="98" cy="132" r="13"/><circle cx="130" cy="108" r="15"/><circle cx="162" cy="104" r="15"/>
+            <circle cx="182" cy="122" r="12"/><circle cx="96" cy="100" r="10"/><circle cx="204" cy="104" r="10"/>
+          </g>
+          <g fill="#b9d98a" fill-opacity=".38" stroke="#4a2e1c" stroke-width="4">
+            <circle cx="121" cy="150" r="20"/><circle cx="179" cy="150" r="20"/>
+          </g>
+          <path d="M141 150 Q150 144 159 150 M101 148 L90 144 M199 148 L210 144" stroke="#4a2e1c" stroke-width="4" fill="none"/>
+          <ellipse cx="121" cy="153" rx="4" ry="3.5" fill="#2a1f1a"/>
+          <ellipse cx="179" cy="153" rx="4" ry="3.5" fill="#2a1f1a"/>
+          <path d="M104 136 Q121 128 136 134 M164 134 Q179 128 196 136" stroke="#2a1f1a" stroke-width="3" fill="none" stroke-linecap="round"/>
+          <path d="M150 156 Q139 176 142 186 Q150 192 158 186 Q161 176 150 156 Z" fill="#e8b993" stroke="#a86f4a" stroke-width="2.5" stroke-linejoin="round"/>
+          <path d="M104 188 Q112 226 150 230 Q188 226 196 188 Q186 206 150 210 Q114 206 104 188 Z" fill="#7a5439"/>
+          <g fill="#7a5439">
+            <circle cx="98" cy="184" r="6"/><circle cx="202" cy="184" r="6"/>
+            <circle cx="116" cy="216" r="4"/><circle cx="184" cy="216" r="4"/>
+          </g>
+          <path d="M130 200 Q150 192 170 200 Q150 212 130 200 Z" fill="#a4594a" stroke="#6e3d30" stroke-width="2" stroke-linejoin="round"/>
+          <path d="M130 200 Q150 205 170 200" stroke="#6e3d30" stroke-width="2" fill="none" stroke-linecap="round"/>
+          <path d="M126 196 Q138 186 150 190 Q162 186 174 196 Q164 199 150 195 Q136 199 126 196 Z" fill="#7a5439"/>
+        </g>
+      </svg>
+    </div>
+    <div class="hero-text">
+    <h1>Jefferson Fernandes</h1>
+    <p class="role">Senior Software Engineer · Ruby on Rails · PostgreSQL · Data engineering</p>
+    <p class="intro">São Paulo, Brazil · 34 years old</p>
+    <div class="markets" aria-label="Markets worked in">
+      <span class="market">🇨🇦 Canada · 100% remote, 2 companies</span>
+      <span class="market">🇧🇷 Brazil · on-site and remote</span>
+    </div>
+    <div class="focus" aria-label="Focus areas">
+      <button type="button" data-focus="Ruby on Rails">Ruby on Rails</button>
+      <button type="button" data-focus="PostgreSQL">PostgreSQL</button>
+      <button type="button" data-focus="Hadoop">Data engineering</button>
+      <button type="button" data-focus="AWS">AWS</button>
+    </div>
+    <div class="hero-links">
+      <a href="mailto:offjeff91@gmail.com">offjeff91@gmail.com</a>
+      <a href="https://www.linkedin.com/in/jeffersonfernandes91" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="Jefferson_Fernandes-CV.pdf" target="_blank" rel="noopener">CV (PDF)</a>
+    </div>
+    </div>
+  </div>
+</header>
+
+<section class="block" id="experience">
+  <div class="wrap">
+    <h2>Experience</h2>
+    <button class="toggle" id="toggle-all" type="button" aria-expanded="false">Expand all</button>
+    <ol class="jobs" id="jobs"></ol>
+  </div>
+</section>
+
+<section class="block" id="education">
+  <div class="wrap">
+    <h2>Education</h2>
+    <div class="edu">
+      <h3>Bachelor's degree, Computer Information Systems</h3>
+      <p><a href="https://www.usp.br" target="_blank" rel="noopener">Universidade de São Paulo (USP)</a> · Mar 2010 – Dec 2014</p>
+      <p>Extracurricular: organized tech events on campus, and taught an introduction to Ruby on Rails twice.</p>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="stack">
+  <div class="wrap">
+    <h2>Stack</h2>
+    <div class="stack-controls" id="stack-controls" role="group" aria-label="Filter by technology"></div>
+    <div class="filter-status" aria-live="polite">
+      <span id="status-text"></span>
+      <button class="clear" id="clear-filter" type="button">Clear</button>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="contact">
+  <div class="wrap">
+    <h2>Contact</h2>
+    <div class="contact">
+      <a href="mailto:offjeff91@gmail.com">offjeff91@gmail.com</a>
+      <a href="https://www.linkedin.com/in/jeffersonfernandes91" target="_blank" rel="noopener">linkedin.com/in/jeffersonfernandes91</a>
+      <span>São Paulo, Brazil · 34 years old</span>
+      <a href="Jefferson_Fernandes-CV.pdf" target="_blank" rel="noopener">CV (PDF)</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site">
+  <div class="wrap">
+    <span>© <span id="year"></span> Jefferson Fernandes</span>
+    <span>Plain HTML, CSS and JavaScript</span>
+  </div>
+</footer>
+
+<script>
+  // Official docs for each technology (used as links)
+  const DOCS = {
+    "Ruby on Rails": "https://rubyonrails.org",
+    "PostgreSQL": "https://www.postgresql.org",
+    "AWS": "https://aws.amazon.com",
+    "AWS Lambda": "https://aws.amazon.com/lambda/",
+    "AWS Data Pipeline": "https://aws.amazon.com/datapipeline/",
+    "Amazon S3": "https://aws.amazon.com/s3/",
+    "Terraform": "https://www.terraform.io",
+    "Elasticsearch": "https://www.elastic.co/elasticsearch",
+    "Hadoop": "https://hadoop.apache.org",
+    "Apache Pig": "https://pig.apache.org",
+    "React": "https://react.dev",
+    "Node.js": "https://nodejs.org",
+    "Vue.js": "https://vuejs.org",
+    "AngularJS": "https://angularjs.org",
+    "Shopify": "https://shopify.dev",
+    "MongoDB": "https://www.mongodb.com",
+    "Heroku": "https://devcenter.heroku.com",
+    "SQL Server": "https://learn.microsoft.com/sql/sql-server/",
+    ".NET": "https://dotnet.microsoft.com",
+    "C#": "https://learn.microsoft.com/dotnet/csharp/",
+    "jQuery": "https://jquery.com"
+  };
+
+  const COLORS = ["#e4572e", "#1f8a8a", "#c98a0b", "#6b3e8f", "#2f7d4f", "#d6336c"];
+
+  const JOBS = [
+    {
+      role: "Senior Software Engineer", company: "ElectionBuddy", url: "https://www.electionbuddy.com",
+      when: "Jul 2022 – now", place: "Alberta, Canada", flag: "🇨🇦", remote: "100% remote", canada: true,
+      stack: ["Ruby on Rails", "AWS", "PostgreSQL"],
+      note: "Rails and PostgreSQL on AWS. Mentor engineers and set code standards.",
+      projects: [
+        {
+          name: "Voter platform and integrations", stack: ["Ruby on Rails", "PostgreSQL", "AWS"],
+          bullets: [
+            "Integration with the HOA API.",
+            "Voter import into PostgreSQL.",
+            "Result restriction by plan and billing, which drove upgrades to higher tiers."
+          ]
+        },
+        {
+          name: "Quorum features", stack: ["Ruby on Rails", "PostgreSQL"],
+          bullets: ["Quorum features for elections."]
+        },
+        {
+          name: "Platform upkeep", stack: ["Ruby on Rails", "PostgreSQL", "AWS"],
+          bullets: [
+            "Ruby upgrade and code standards.",
+            "PostgreSQL database maintenance.",
+            "Maintenance of internal scripts.",
+            "Took the app from MVP to production on AWS."
+          ]
+        },
+        {
+          name: "UI revamp", stack: [],
+          bullets: ["Revamp of the application UI."]
+        },
+        {
+          name: "Team and ownership", stack: [],
+          bullets: [
+            "Code reviews for junior developers.",
+            "Owner of my projects, from planning through delivery."
+          ]
+        }
+      ]
+    },
+    {
+      role: "Senior Software Engineer", company: "TridentAB (by SmartFlowLabs)",
+      when: "May 2022 – Jun 2023", place: "Quebec, Canada", flag: "🇨🇦", remote: "100% remote", canada: true,
+      stack: ["React", "Node.js", "Shopify", "MongoDB", "Heroku"],
+      note: "E-commerce tooling for Shopify merchants. Also did product management tasks.",
+      projects: [
+        {
+          name: "Shopify A/B testing", stack: ["React", "Node.js", "Shopify", "MongoDB"],
+          bullets: [
+            "A/B tests for Shopify merchants' products.",
+            "React visual editor that lets shoppers change store elements."
+          ]
+        },
+        {
+          name: "Scheduling integration", stack: ["Node.js"],
+          bullets: ["Integrated the scheduling system with an external queue API."]
+        },
+        {
+          name: "CI/CD and deployment", stack: ["Heroku"],
+          bullets: ["Pipeline from GitHub to Heroku. Deployed and maintained a MongoDB cluster."]
+        }
+      ]
+    },
+    {
+      role: "Tech Lead", company: "Vizir Software Studio",
+      when: "Jun 2020 – Jul 2021", place: "São Paulo, Brazil", flag: "🇧🇷", remote: "Remote",
+      stack: [],
+      note: "Code reviews, mentoring, task prioritization with PMs, onboarding new engineers.",
+      projects: []
+    },
+    {
+      role: "Senior Software Engineer", company: "Vizir Software Studio",
+      when: "Oct 2014 – May 2020", place: "São Paulo, Brazil", flag: "🇧🇷", remote: null,
+      stack: ["Ruby on Rails", "Elasticsearch", "AWS", "Hadoop", "Terraform", "React", "Node.js", "Vue.js", "AngularJS"],
+      note: "Several clients and stacks.",
+      projects: [
+        {
+          name: "Data pipeline and analytics platform", client: "Abril Big Data", featured: true,
+          stack: ["Ruby on Rails", "PostgreSQL", "Amazon S3", "AWS Data Pipeline", "Elasticsearch", "Hadoop", "Apache Pig"],
+          bullets: [
+            "Designed and deployed the ETL pipeline from S3 files into Elasticsearch on AWS Data Pipeline.",
+            "Batch processing with Hadoop MapReduce, written in Apache Pig.",
+            "Built the Rails web app for complex queries over the processed data."
+          ]
+        },
+        {
+          name: "Document validation", client: "CargoX", stack: ["Ruby on Rails", "Vue.js", "AWS", "Terraform"],
+          bullets: [
+            "Integrated the app with an OCR API to speed up document validation.",
+            "Moved the cloud infrastructure to AWS with Terraform."
+          ]
+        },
+        {
+          name: "Marketplace microservice", client: "JCPM", stack: ["React", "Node.js", "AWS Lambda", "Terraform"],
+          bullets: [
+            "Marketplace platform for retailers across e-commerce platforms.",
+            "Microservice on AWS Lambda, managed with Terraform."
+          ]
+        },
+        {
+          name: "Lead-capture quiz", client: "Jornal do Comércio", stack: ["Ruby on Rails", "AngularJS"],
+          bullets: ["Interactive quiz that collects customer lead data."]
+        }
+      ]
+    },
+    {
+      role: "Software Engineer", company: "VTX Software",
+      when: "Mar 2014 – Oct 2014", place: "São Paulo, Brazil", flag: "🇧🇷", remote: null,
+      stack: ["Node.js"], note: "", projects: [
+        { name: "Mobile wallet API", stack: ["Node.js"], bullets: ["Maintained the Node.js API for a mobile wallet product."] }
+      ]
+    },
+    {
+      role: "Software Engineer", company: "Vizir Software Studio",
+      when: "Mar 2011 – Mar 2014", place: "São Paulo, Brazil", flag: "🇧🇷", remote: null,
+      stack: ["Ruby on Rails", "jQuery"], note: "First professional web work, mainly with Rails.", projects: []
+    },
+    {
+      role: "Software Engineer", company: "i9Tec",
+      when: "Mar 2010 – Oct 2011", place: "São Paulo, Brazil", flag: "🇧🇷", remote: null,
+      stack: ["SQL Server", "C#"], note: "Microsoft Dynamics AX solutions. MCP certification in X++.", projects: []
+    },
+    {
+      role: "Junior Software Engineer", company: "RMS Software LTDA",
+      when: "Oct 2008 – Mar 2010", place: "São Paulo, Brazil", flag: "🇧🇷", remote: null,
+      stack: [".NET", "SQL Server"],
+      note: "ERP software. Integrated the product with a government tax system over SOAP.", projects: []
+    }
+  ];
+
+  // Stack filter: all technologies, with counts
+  const ALL_TECH = [...new Set(JOBS.flatMap(j => [...j.stack, ...j.projects.flatMap(p => p.stack)]))];
+  const controls = document.getElementById("stack-controls");
+  ALL_TECH.forEach((t, i) => {
+    const count = JOBS.reduce((n, j) => n + (j.stack.includes(t) ? 1 : 0) + j.projects.filter(p => p.stack.includes(t)).length, 0);
+    const b = document.createElement("button");
+    b.className = "tech";
+    b.type = "button";
+    b.setAttribute("aria-pressed", "false");
+    b.dataset.tech = t;
+    b.style.setProperty("--c", COLORS[i % COLORS.length]);
+    b.innerHTML = `${t}<small>${count}</small>`;
+    b.addEventListener("click", () => setFilter(active === t ? null : t));
+    controls.appendChild(b);
+  });
+
+  function tagsHTML(list) {
+    return `<div class="tags">${list.map(t =>
+      DOCS[t]
+        ? `<a class="tag" href="${DOCS[t]}" target="_blank" rel="noopener" data-tag="${t}">${t}</a>`
+        : `<span class="tag" data-tag="${t}">${t}</span>`
+    ).join("")}</div>`;
+  }
+
+  // Render experience: each job and each project has its own stack
+  const jobsEl = document.getElementById("jobs");
+  JOBS.forEach(j => {
+    const li = document.createElement("li");
+    li.className = "job";
+    li.dataset.stack = j.stack.join("|");
+    const cls = j.canada ? "loc canada" : "loc";
+    li.innerHTML = `
+      <div class="job-head">
+        <div>
+          <h3>${j.role}</h3>
+          <div class="company">${j.url ? `<a href="${j.url}" target="_blank" rel="noopener">${j.company}</a>` : j.company}</div>
+        </div>
+        <div class="meta">
+          <span>${j.when}</span>
+          <span class="${cls}">${j.flag} ${j.place}</span>
+          ${j.remote ? `<span class="remote">${j.remote}</span>` : ""}
+        </div>
+      </div>
+      ${j.note ? `<p class="note">${j.note}</p>` : ""}
+      ${j.stack.length ? `<div class="job-stack">${tagsHTML(j.stack)}</div>` : ""}
+      ${j.projects.length ? `<div class="projects">${j.projects.map((p, i) => `
+        <details class="proj${p.featured ? " featured" : ""}" data-stack="${p.stack.join("|")}" style="--c:${COLORS[i % COLORS.length]}">
+          <summary><span class="pname">${p.name}${p.client ? ` · ${p.client}` : ""}</span>${p.featured ? ` <span class="pill">Data engineering</span>` : ""}${tagsHTML(p.stack)}</summary>
+          <ul>${p.bullets.map(b => `<li>${b}</li>`).join("")}</ul>
+        </details>`).join("")}</div>` : ""}`;
+    jobsEl.appendChild(li);
+  });
+
+  // Expand or collapse every project
+  const toggleAll = document.getElementById("toggle-all");
+  toggleAll.addEventListener("click", () => {
+    const open = toggleAll.getAttribute("aria-expanded") !== "true";
+    document.querySelectorAll("details.proj").forEach(d => { d.open = open; });
+    toggleAll.setAttribute("aria-expanded", String(open));
+    toggleAll.textContent = open ? "Collapse all" : "Expand all";
+  });
+
+  // Filtering
+  let active = null;
+  function setFilter(tech) {
+    active = tech;
+    document.querySelectorAll(".tech").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.tech === tech)));
+
+    let jobHits = 0, projHits = 0;
+    document.querySelectorAll(".job").forEach(job => {
+      const jobStack = job.dataset.stack.split("|");
+      let anyProj = false;
+      job.querySelectorAll(".proj").forEach(p => {
+        const hit = !tech || p.dataset.stack.split("|").includes(tech);
+        p.classList.toggle("dim", !hit);
+        if (tech && hit) { anyProj = true; projHits++; }
+      });
+      const jobHit = !tech || jobStack.includes(tech) || anyProj;
+      job.classList.toggle("dim", !jobHit);
+      if (tech && jobHit) jobHits++;
+      job.querySelectorAll(".tag").forEach(t => t.classList.toggle("hit", t.dataset.tag === tech));
+    });
+
+    const status = document.getElementById("status-text");
+    const clear = document.getElementById("clear-filter");
+    if (tech) {
+      status.textContent = `${tech}: ${jobHits} role${jobHits === 1 ? "" : "s"}, ${projHits} project${projHits === 1 ? "" : "s"}.`;
+      clear.classList.add("show");
+    } else {
+      status.textContent = "Pick a technology to filter experience.";
+      clear.classList.remove("show");
+    }
+  }
+  document.getElementById("clear-filter").addEventListener("click", () => setFilter(null));
+  setFilter(null);
+
+  // Hero focus buttons: filter and jump to the stack
+  document.querySelectorAll("[data-focus]").forEach(b => {
+    b.addEventListener("click", () => {
+      setFilter(b.dataset.focus);
+      document.getElementById("stack").scrollIntoView({ behavior: "smooth" });
+    });
+  });
+
+  // Nav: active section and progress bar
+  const navLinks = [...document.querySelectorAll(".topnav a[href^='#']")];
+  const spy = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      navLinks.forEach(a => a.setAttribute("aria-current", String(a.getAttribute("href") === "#" + e.target.id)));
+    });
+  }, { rootMargin: "-45% 0px -50% 0px" });
+  navLinks.forEach(a => {
+    const el = document.querySelector(a.getAttribute("href"));
+    if (el) spy.observe(el);
+  });
+
+  const progress = document.getElementById("progress");
+  const onScroll = () => {
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    progress.style.transform = `scaleX(${max > 0 ? window.scrollY / max : 0})`;
+  };
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
 </body>
 </html>
