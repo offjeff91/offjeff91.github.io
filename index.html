@@ -101,6 +101,12 @@
   details.proj[open] > summary::after { content: "–"; }
   details.proj > summary:focus-visible { outline: 2px solid var(--coral); outline-offset: 2px; }
   .pname { font-weight: 600; }
+  details.jobbox > summary { list-style: none; cursor: pointer; }
+  details.jobbox > summary::-webkit-details-marker { display: none; }
+  details.jobbox > summary .job-head::after { content: "+"; font-family: var(--mono); font-size: 1.3rem; color: var(--moss); align-self: center; margin-left: 12px; }
+  details.jobbox[open] > summary .job-head::after { content: "–"; }
+  details.jobbox > summary:focus-visible { outline: 2px solid var(--coral); outline-offset: 2px; }
+  details.jobbox > summary .job-stack { margin-top: 12px; }
   .proj ul li { margin-bottom: 2px; }
   .toggle { font-family: var(--mono); font-size: .8rem; padding: 5px 12px; border: 1px solid var(--ink); border-radius: 6px; background: var(--card); margin-bottom: 14px; }
   .toggle:hover { background: var(--ink); color: var(--paper); }
@@ -218,7 +224,6 @@
 <section class="block" id="experience">
   <div class="wrap">
     <h2>Experience</h2>
-    <button class="toggle" id="toggle-all" type="button" aria-expanded="false">Expand all</button>
     <ol class="jobs" id="jobs"></ol>
   </div>
 </section>
@@ -284,6 +289,7 @@
     "Shopify": "https://shopify.dev",
     "MongoDB": "https://www.mongodb.com",
     "Heroku": "https://devcenter.heroku.com",
+    "Redis": "https://redis.io",
     "SQL Server": "https://learn.microsoft.com/sql/sql-server/",
     ".NET": "https://dotnet.microsoft.com",
     "C#": "https://learn.microsoft.com/dotnet/csharp/",
@@ -296,7 +302,8 @@
     {
       role: "Senior Software Engineer", company: "ElectionBuddy", url: "https://www.electionbuddy.com",
       when: "Jul 2022 – now", place: "Alberta, Canada", flag: "🇨🇦", remote: "100% remote", canada: true,
-      stack: ["Ruby on Rails", "AWS", "PostgreSQL"],
+      open: true, inherit: true,
+      stack: ["Ruby on Rails", "AWS", "PostgreSQL", "Redis"],
       note: "Rails and PostgreSQL on AWS. Mentor engineers and set code standards.",
       projects: [
         {
@@ -455,6 +462,8 @@
     li.dataset.stack = j.stack.join("|");
     const cls = j.canada ? "loc canada" : "loc";
     li.innerHTML = `
+      <details class="jobbox"${j.open ? " open" : ""}>
+      <summary>
       <div class="job-head">
         <div>
           <h3>${j.role}</h3>
@@ -466,23 +475,16 @@
           ${j.remote ? `<span class="remote">${j.remote}</span>` : ""}
         </div>
       </div>
-      ${j.note ? `<p class="note">${j.note}</p>` : ""}
       ${j.stack.length ? `<div class="job-stack">${tagsHTML(j.stack)}</div>` : ""}
+      </summary>
+      ${j.note ? `<p class="note">${j.note}</p>` : ""}
       ${j.projects.length ? `<div class="projects">${j.projects.map((p, i) => `
-        <details class="proj${p.featured ? " featured" : ""}" data-stack="${p.stack.join("|")}" style="--c:${COLORS[i % COLORS.length]}">
-          <summary><span class="pname">${p.name}${p.client ? ` · ${p.client}` : ""}</span>${p.featured ? ` <span class="pill">Data engineering</span>` : ""}${tagsHTML(p.stack)}</summary>
+        <details class="proj${p.featured ? " featured" : ""}" data-stack="${j.inherit ? "" : p.stack.join("|")}" style="--c:${COLORS[i % COLORS.length]}">
+          <summary><span class="pname">${p.name}${p.client ? ` · ${p.client}` : ""}</span>${p.featured ? ` <span class="pill">Data engineering</span>` : ""}${j.inherit ? "" : tagsHTML(p.stack)}</summary>
           <ul>${p.bullets.map(b => `<li>${b}</li>`).join("")}</ul>
-        </details>`).join("")}</div>` : ""}`;
+        </details>`).join("")}</div>` : ""}
+      </details>`;
     jobsEl.appendChild(li);
-  });
-
-  // Expand or collapse every project
-  const toggleAll = document.getElementById("toggle-all");
-  toggleAll.addEventListener("click", () => {
-    const open = toggleAll.getAttribute("aria-expanded") !== "true";
-    document.querySelectorAll("details.proj").forEach(d => { d.open = open; });
-    toggleAll.setAttribute("aria-expanded", String(open));
-    toggleAll.textContent = open ? "Collapse all" : "Expand all";
   });
 
   // Filtering
@@ -496,7 +498,8 @@
       const jobStack = job.dataset.stack.split("|");
       let anyProj = false;
       job.querySelectorAll(".proj").forEach(p => {
-        const hit = !tech || p.dataset.stack.split("|").includes(tech);
+        const ps = p.dataset.stack ? p.dataset.stack.split("|") : jobStack;
+        const hit = !tech || ps.includes(tech);
         p.classList.toggle("dim", !hit);
         if (tech && hit) { anyProj = true; projHits++; }
       });
