@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Jefferson Fernandes | Senior Software Engineer</title>
-<meta name="description" content="Senior Software Engineer: Ruby on Rails, PostgreSQL and data engineering. Remote work for Canadian and Brazilian companies.">
+<title>Jefferson Fernandes | Senior Backend Engineer · Ruby on Rails, PostgreSQL, AI</title>
+<meta name="description" content="Senior backend engineer with 15+ years in software and Ruby on Rails since 2011. PostgreSQL performance, zero-downtime upgrades, AI agents and MCP, data pipelines. Remote for Canadian companies since 2022.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Newsreader:wght@500;600&display=swap" rel="stylesheet">
@@ -202,8 +202,9 @@
     </div>
     <div class="hero-text">
     <h1>Jefferson Fernandes</h1>
-    <p class="role">Senior Software Engineer · Ruby on Rails · PostgreSQL · Data engineering</p>
-    <p class="intro">São Paulo, Brazil · 34 years old</p>
+    <p class="role">Senior Backend Engineer · Ruby on Rails &amp; PostgreSQL · AI agents &amp; MCP</p>
+    <p class="intro">15+ years building software, Ruby on Rails since 2011. At ElectionBuddy I made key PostgreSQL queries 99% faster and upgraded to Ruby 4 and Rails 8 with zero downtime, using AI to verify each step. On the side I run meajudaí, a Rails app in production with an MCP server for AI assistants. Before that: data pipelines on AWS and Hadoop.</p>
+    <p class="intro">São Paulo, Brazil · UTC−3 · remote</p>
     <div class="markets" aria-label="Markets worked in">
       <span class="market">🇨🇦 Canada · 100% remote, 2 companies</span>
       <span class="market">🇧🇷 Brazil · on-site and remote</span>
@@ -211,8 +212,8 @@
     <div class="focus" aria-label="Focus areas">
       <button type="button" data-focus="Ruby on Rails">Ruby on Rails</button>
       <button type="button" data-focus="PostgreSQL">PostgreSQL</button>
-      <button type="button" data-focus="Hadoop">Data engineering</button>
-      <button type="button" data-focus="AWS">AWS</button>
+      <button type="button" data-focus="MCP">AI agents &amp; MCP</button>
+      <button type="button" data-focus="AWS Data Pipeline">Data pipelines</button>
     </div>
     <div class="hero-links">
       <a href="mailto:offjeff91@gmail.com">offjeff91@gmail.com</a>
@@ -258,7 +259,7 @@
     <div class="contact">
       <a href="mailto:offjeff91@gmail.com">offjeff91@gmail.com</a>
       <a href="https://www.linkedin.com/in/jeffersonfernandes91" target="_blank" rel="noopener">linkedin.com/in/jeffersonfernandes91</a>
-      <span>São Paulo, Brazil · 34 years old</span>
+      <span>São Paulo, Brazil · UTC−3 · remote</span>
       <a href="https://offjeff91.github.io/Jefferson_Fernandes-CV.pdf" target="_blank" rel="noopener">CV (PDF)</a>
     </div>
   </div>
@@ -316,6 +317,65 @@
 
   const JOBS = [
     {
+      role: "Senior Software Engineer", company: "ElectionBuddy", url: "https://www.electionbuddy.com",
+      when: "Jul 2022 – now", place: "Alberta, Canada", flag: "🇨🇦", remote: "100% remote", canada: true,
+      open: true, inherit: true,
+      stack: ["Ruby on Rails", "AWS", "PostgreSQL", "Redis", "Sidekiq", "AG Grid", "Datadog", "PgHero", "Claude Code"],
+      note: "Rails and PostgreSQL on AWS. I propose features, keep the platform current and fast, and mentor engineers.",
+      projects: [
+        {
+          name: "Database performance (self-directed)", stack: ["PostgreSQL", "Datadog", "PgHero"],
+          bullets: [
+            "Found slow queries with Datadog and PgHero and turned them into a prioritized backlog of fixes.",
+            "Removed unused indexes and added targeted ones based on query data.",
+            "An index on invitations made access-key lookups 99% faster."
+          ]
+        },
+        {
+          name: "Ruby 4, Rails 8 and Sidekiq upgrade", stack: ["Ruby on Rails", "Sidekiq", "Claude Code"],
+          bullets: [
+            "Led the upgrade to Ruby 4, Rails 8 and a current Sidekiq with zero downtime.",
+            "Used AI (Claude Code) to verify each step, plus soak testing before every rollout."
+          ]
+        },
+        {
+          name: "MVP to production", stack: ["Ruby on Rails", "AWS"],
+          bullets: [
+            "Took the app from MVP to production on AWS and kept Ruby versions and code standards current."
+          ]
+        },
+        {
+          name: "Voter platform and integrations", stack: ["Ruby on Rails", "PostgreSQL", "AWS"],
+          bullets: [
+            "Implemented plan-based result restrictions tied to billing, which drove upgrades to higher tiers.",
+            "Built the integration with the HOA API.",
+            "Implemented bulk voter import into PostgreSQL.",
+            "Built quorum features for elections."
+          ]
+        },
+        {
+          name: "Calendar feature, from idea to production", stack: ["Ruby on Rails"],
+          bullets: [
+            "Proposed, prototyped and pitched a calendar view so organizers can plan their elections.",
+            "Iterated on team feedback and shipped it to production."
+          ]
+        },
+        {
+          name: "UI revamp with AG Grid", stack: ["AG Grid"],
+          bullets: [
+            "Rebuilt every data screen on AG Grid, with better search, filtering and navigation over large datasets."
+          ]
+        },
+        {
+          name: "Team and ownership", stack: [],
+          bullets: [
+            "Reviewed code and mentored junior developers.",
+            "Owned my projects from planning through delivery."
+          ]
+        }
+      ]
+    },
+    {
       role: "Founder & Developer", company: "meajudaí (side project)", url: "https://app.meajud.ai",
       when: "2026 – now", place: "Brazil", flag: "🇧🇷", remote: "Personal project",
       open: true, inherit: true,
@@ -334,72 +394,16 @@
           name: "Integrations", stack: [],
           bullets: [
             "WhatsApp channel (Meta Cloud API) with rule-based Portuguese free-text capture, no LLM.",
-            "MCP server so AI assistants can operate the app directly.",
-            "Receipt OCR with Tesseract; public data from the Brazilian Central Bank and IBGE."
+            "MCP server (Streamable HTTP) so AI assistants can read and write the app's data, every call scoped to the user and group.",
+            "Receipt OCR with Tesseract, measured against 42 synthetic receipts with an answer key; public data from the Brazilian Central Bank and IBGE."
           ]
         },
         {
           name: "Infrastructure", stack: [],
           bullets: [
-            "Single Arm VM on Hetzner, deployed with Kamal and pull-based automatic deploys.",
-            "Installable PWA with offline awareness, feature flags and request metrics.",
+            "Single Arm VM on Hetzner, deployed with Kamal and pull-based automatic deploys; daily pg_dump backups.",
+            "Installable PWA with offline awareness and feature flags; per-route request metrics and a query-budget test that fails when a list screen starts querying per row.",
             "Built with an AI agent workflow: Claude Code subagents for UX, UI, mobile and performance, verified with Playwright."
-          ]
-        }
-      ]
-    },
-    {
-      role: "Senior Software Engineer", company: "ElectionBuddy", url: "https://www.electionbuddy.com",
-      when: "Jul 2022 – now", place: "Alberta, Canada", flag: "🇨🇦", remote: "100% remote", canada: true,
-      open: true, inherit: true,
-      stack: ["Ruby on Rails", "AWS", "PostgreSQL", "Redis", "Sidekiq", "AG Grid", "Datadog", "PgHero", "Claude Code"],
-      note: "Rails and PostgreSQL on AWS. I propose features, keep the platform current and fast, and mentor engineers.",
-      projects: [
-        {
-          name: "Voter platform and integrations", stack: ["Ruby on Rails", "PostgreSQL", "AWS"],
-          bullets: [
-            "Integration with the HOA API.",
-            "Voter import into PostgreSQL.",
-            "Result restriction by plan and billing, which drove upgrades to higher tiers.",
-            "Quorum features for elections."
-          ]
-        },
-        {
-          name: "Calendar feature, from idea to production", stack: ["Ruby on Rails"],
-          bullets: [
-            "Proposed a calendar view to help organizers plan their elections.",
-            "Built the proof of concept and presented it to the team.",
-            "Iterated on feedback until it shipped to production, a large UX gain for customers."
-          ]
-        },
-        {
-          name: "UI revamp with AG Grid", stack: ["AG Grid"],
-          bullets: [
-            "Rebuilt every data screen on AG Grid.",
-            "Better search, filtering and navigation over large datasets."
-          ]
-        },
-        {
-          name: "Ruby 4, Rails 8 and Sidekiq upgrade", stack: ["Ruby on Rails", "Sidekiq"],
-          bullets: [
-            "Upgraded to Ruby 4, Rails 8 and a current Sidekiq with zero downtime.",
-            "Heavy use of AI to verify each step, plus soak testing before each rollout.",
-            "Earlier: took the app from MVP to production on AWS and kept Ruby and code standards current."
-          ]
-        },
-        {
-          name: "Database performance", stack: ["PostgreSQL", "Datadog", "PgHero"],
-          bullets: [
-            "Self-directed: found slow queries with Datadog and PgHero and turned them into improvement tasks.",
-            "Dropped unused indexes and added new ones where the data showed a need.",
-            "An index on invitations made access-key queries 99% faster."
-          ]
-        },
-        {
-          name: "Team and ownership", stack: [],
-          bullets: [
-            "Code reviews and mentoring for junior developers.",
-            "Owner of my projects, from planning through delivery."
           ]
         }
       ]
@@ -413,8 +417,8 @@
         {
           name: "Shopify A/B testing", stack: ["React", "Node.js", "Shopify", "MongoDB"],
           bullets: [
-            "A/B tests for Shopify merchants' products.",
-            "React visual editor that lets shoppers change store elements."
+            "Built A/B testing for Shopify merchants' products.",
+            "Built a React visual editor that lets shoppers change store elements."
           ]
         },
         {
@@ -423,7 +427,7 @@
         },
         {
           name: "CI/CD and deployment", stack: ["Heroku"],
-          bullets: ["Pipeline from GitHub to Heroku. Deployed and maintained a MongoDB cluster."]
+          bullets: ["Set up CI/CD from GitHub to Heroku; deployed and maintained a MongoDB cluster."]
         }
       ]
     },
@@ -431,7 +435,7 @@
       role: "Tech Lead", company: "Vizir Software Studio",
       when: "Jun 2020 – Jul 2021", place: "São Paulo, Brazil", flag: "🇧🇷", remote: "Remote",
       stack: [],
-      note: "Code reviews, mentoring, task prioritization with PMs, onboarding new engineers.",
+      note: "Led the team's code reviews, mentored engineers, prioritized work with project managers and onboarded new engineers.",
       projects: []
     },
     {
@@ -444,28 +448,27 @@
           name: "Data pipeline and analytics platform", client: "Abril Big Data", featured: true,
           stack: ["Ruby on Rails", "PostgreSQL", "Amazon S3", "AWS Data Pipeline", "Elasticsearch", "Hadoop", "Apache Pig"],
           bullets: [
-            "Designed and deployed the ETL pipeline from S3 files into Elasticsearch on AWS Data Pipeline.",
-            "Batch processing with Hadoop MapReduce, written in Apache Pig.",
-            "Built the Rails web app for complex queries over the processed data."
+            "Designed and deployed an ETL pipeline from Amazon S3 into Elasticsearch on AWS Data Pipeline.",
+            "Wrote Hadoop MapReduce batch jobs in Apache Pig.",
+            "Built the Rails app that runs complex queries over the processed data."
           ]
         },
         {
           name: "Document validation", client: "CargoX", stack: ["Ruby on Rails", "Vue.js", "AWS", "Terraform"],
           bullets: [
             "Integrated the app with an OCR API to speed up document validation.",
-            "Moved the cloud infrastructure to AWS with Terraform."
+            "Migrated the cloud infrastructure to AWS, managed with Terraform."
           ]
         },
         {
           name: "Marketplace microservice", client: "JCPM", stack: ["React", "Node.js", "AWS Lambda", "Terraform"],
           bullets: [
-            "Marketplace platform for retailers across e-commerce platforms.",
-            "Microservice on AWS Lambda, managed with Terraform."
+            "Built a microservice on AWS Lambda (Node.js, Terraform) for a marketplace connecting retailers across e-commerce platforms."
           ]
         },
         {
           name: "Lead-capture quiz", client: "Jornal do Comércio", stack: ["Ruby on Rails", "AngularJS"],
-          bullets: ["Interactive quiz that collects customer lead data."]
+          bullets: ["Built an interactive Rails + AngularJS quiz that captures reader leads."]
         }
       ]
     },
@@ -479,18 +482,18 @@
     {
       role: "Software Engineer", company: "Vizir Software Studio",
       when: "Mar 2011 – Mar 2014", place: "São Paulo, Brazil", flag: "🇧🇷", remote: null,
-      stack: ["Ruby on Rails", "jQuery"], note: "First professional web work, mainly with Rails.", projects: []
+      stack: ["Ruby on Rails", "jQuery"], note: "Built web applications in Ruby on Rails and jQuery.", projects: []
     },
     {
       role: "Software Engineer", company: "i9Tec",
       when: "Mar 2010 – Oct 2011", place: "São Paulo, Brazil", flag: "🇧🇷", remote: null,
-      stack: ["SQL Server", "C#"], note: "Microsoft Dynamics AX solutions. MCP certification in X++.", projects: []
+      stack: ["SQL Server", "C#"], note: "Delivered Microsoft Dynamics AX solutions in X++, C# and SQL Server; Microsoft certified (X++).", projects: []
     },
     {
       role: "Junior Software Engineer", company: "RMS Software LTDA",
       when: "Oct 2008 – Mar 2010", place: "São Paulo, Brazil", flag: "🇧🇷", remote: null,
       stack: [".NET", "SQL Server"],
-      note: "ERP software. Integrated the product with a government tax system over SOAP.", projects: []
+      note: "Integrated an ERP with a government tax system over SOAP (.NET, SQL Server).", projects: []
     }
   ];
 
