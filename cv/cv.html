@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Jefferson Fernandes — CV</title>
+<style>
+@page { size: A4; margin: 13mm 16mm; }
+body { font-family: "Latin Modern Roman", "CMU Serif", "Times New Roman", serif; font-size: 9.3pt; color: #111; line-height: 1.28; margin: 0; }
+a { color: #2f6b55; text-decoration: none; }
+h1 { font-size: 20pt; margin: 0; }
+.sub { color: #2f6b55; font-size: 12pt; }
+.contact { color: #2f6b55; font-size: 8.5pt; }
+.contact span { color: #999; margin: 0 8px; }
+h2 { color: #2f6b55; font-size: 12.5pt; font-weight: normal; margin: 11px 0 5px; padding-bottom: 4px; border-bottom: .5px solid #bbb; }
+.job { margin-top: 9px; }
+.row { display: flex; justify-content: space-between; }
+.role { font-weight: bold; }
+.dt, .pl { color: #555; }
+.co { font-style: italic; color: #2f6b55; }
+.stack, .ps { color: #777; font-size: 8.5pt; }
+ul { margin: 6px 0 0; padding-left: 16px; }
+li { margin: 3px 0; }
+ul ul { list-style: none; padding-left: 12px; margin: 2px 0 6px; }
+ul ul li { margin: 1px 0; }
+ul ul li::before { content: "– "; margin-left: -10px; }
+.pn { font-weight: bold; }
+p { margin: 4px 0; }
+</style></head><body>
+<h1>Jefferson Fernandes</h1>
+<div class="sub">Senior Software Engineer</div>
+<div class="contact">São Paulo, Brazil<span>·</span><a href="mailto:offjeff91@gmail.com">offjeff91@gmail.com</a><span>·</span><a href="https://linkedin.com/in/jeffersonfernandes91">linkedin.com/in/jeffersonfernandes91</a><span>·</span><a href="https://offjeff91.github.io">offjeff91.github.io</a></div>
+
+<h2>Summary</h2>
+<p>Senior Software Engineer with ten years of backend experience in Ruby on Rails and PostgreSQL, plus data engineering pipelines on AWS and Hadoop. Worked remotely for Canadian companies, proposes and ships product features end to end, keeps platforms current and fast, and mentors engineers on code standards and reviews.</p>
+
+<h2>Experience</h2>
+
+<div class="job">
+<div class="row"><span class="role">Senior Software Engineer (100% remote)</span><span class="dt">Jul 2022 – present</span></div>
+<div class="row"><span class="co">ElectionBuddy</span><span class="pl">Alberta, Canada</span></div>
+<div class="stack">Stack: Ruby on Rails, PostgreSQL, AWS, Redis, Sidekiq, AG Grid, Datadog, PgHero, Claude Code</div>
+<ul>
+<li><span class="pn">Voter platform and integrations</span><ul>
+<li>Integration with the HOA API.</li><li>Voter import into PostgreSQL.</li>
+<li>Result restriction by plan and billing, which drove upgrades to higher tiers.</li><li>Quorum features for elections.</li></ul></li>
+<li><span class="pn">Calendar feature, from idea to production</span><ul>
+<li>Proposed a calendar view to help organizers plan their elections.</li>
+<li>Built the proof of concept and presented it to the team.</li>
+<li>Iterated on feedback until it shipped to production, a large UX gain for customers.</li></ul></li>
+<li><span class="pn">UI revamp with AG Grid</span><ul>
+<li>Rebuilt every data screen on AG Grid, with better search, filtering and navigation over large datasets.</li></ul></li>
+<li><span class="pn">Ruby 4, Rails 8 and Sidekiq upgrade</span><ul>
+<li>Upgraded to Ruby 4, Rails 8 and a current Sidekiq with zero downtime.</li>
+<li>Heavy use of AI to verify each step, plus soak testing before each rollout.</li>
+<li>Earlier: took the app from MVP to production on AWS and kept Ruby and code standards current.</li></ul></li>
+<li><span class="pn">Database performance</span><ul>
+<li>Self-directed: found slow queries with Datadog and PgHero and turned them into improvement tasks.</li>
+<li>Dropped unused indexes and added new ones where the data showed a need.</li>
+<li>An index on invitations made access-key queries 99% faster.</li></ul></li>
+<li><span class="pn">Team and ownership</span><ul>
+<li>Code reviews and mentoring for junior developers.</li><li>Owner of my projects, from planning through delivery.</li></ul></li>
+</ul></div>
+
+<div class="job">
+<div class="row"><span class="role">Founder &amp; Developer (side project)</span><span class="dt">2026 – present</span></div>
+<div class="row"><span class="co"><a href="https://app.meajud.ai">meajudaí</a></span><span class="pl">Brazil</span></div>
+<div class="stack">Stack: Ruby on Rails, PostgreSQL, Hotwire (Turbo, Stimulus), PWA, MCP, Claude Code, Docker, Kamal, Hetzner, Playwright</div>
+<ul>
+<li>App for Brazilian households, built and run end to end, in production at app.meajud.ai.</li>
+<li>Expense splitting with Pix QR codes, tasks and kanban projects, recurring bills, budget and savings goals.</li>
+<li>WhatsApp channel with rule-based Portuguese free-text capture, an MCP server for AI assistants, and receipt OCR.</li>
+<li>Built with an AI agent workflow (Claude Code subagents for UX, UI, mobile and performance) and Playwright checks.</li>
+<li>Single Arm VM on Hetzner with Kamal and pull-based automatic deploys; installable PWA.</li>
+</ul></div>
+
+<div class="job">
+<div class="row"><span class="role">Senior Software Engineer (100% remote)</span><span class="dt">May 2022 – Jun 2023</span></div>
+<div class="row"><span class="co">TridentAB (by SmartFlowLabs)</span><span class="pl">Quebec, Canada</span></div>
+<ul>
+<li><span class="pn">Shopify A/B testing</span> <span class="ps">React, Node.js, Shopify, MongoDB</span><ul>
+<li>A/B tests for Shopify merchants’ products.</li><li>React visual editor that lets shoppers change store elements.</li></ul></li>
+<li><span class="pn">Scheduling integration</span> <span class="ps">Node.js</span><ul><li>Integrated the scheduling system with an external queue API.</li></ul></li>
+<li><span class="pn">CI/CD and deployment</span> <span class="ps">Heroku</span><ul><li>Pipeline from GitHub to Heroku. Deployed and maintained a MongoDB cluster.</li></ul></li>
+<li>Product management tasks.</li>
+</ul></div>
+
+<div class="job">
+<div class="row"><span class="role">Tech Lead (remote)</span><span class="dt">Jun 2020 – Jul 2021</span></div>
+<div class="row"><span class="co">Vizir Software Studio</span><span class="pl">São Paulo, Brazil</span></div>
+<ul><li>Code reviews, mentoring, task prioritization with project managers, and onboarding new engineers.</li></ul></div>
+
+<div class="job">
+<div class="row"><span class="role">Senior Software Engineer</span><span class="dt">Oct 2014 – May 2020</span></div>
+<div class="row"><span class="co">Vizir Software Studio</span><span class="pl">São Paulo, Brazil</span></div>
+<ul>
+<li><span class="pn">Data pipeline and analytics platform (Abril Big Data)</span> <span class="ps">Ruby on Rails, PostgreSQL, Amazon S3, AWS Data Pipeline, Elasticsearch, Hadoop, Apache Pig</span><ul>
+<li>Designed and deployed the ETL pipeline from S3 files into Elasticsearch on AWS Data Pipeline.</li>
+<li>Batch processing with Hadoop MapReduce, written in Apache Pig.</li>
+<li>Built the Rails web app for complex queries over the processed data.</li></ul></li>
+<li><span class="pn">Document validation (CargoX)</span> <span class="ps">Ruby on Rails, Vue.js, AWS, Terraform</span><ul>
+<li>Integrated the app with an OCR API to speed up document validation.</li><li>Moved the cloud infrastructure to AWS with Terraform.</li></ul></li>
+<li><span class="pn">Marketplace microservice (JCPM)</span> <span class="ps">React, Node.js, AWS Lambda, Terraform</span><ul>
+<li>Marketplace platform for retailers across e-commerce platforms.</li><li>Microservice on AWS Lambda, managed with Terraform.</li></ul></li>
+<li><span class="pn">Lead-capture quiz (Jornal do Comércio)</span> <span class="ps">Ruby on Rails, AngularJS</span><ul>
+<li>Interactive quiz that collects customer lead data.</li></ul></li>
+</ul></div>
+
+<div class="job">
+<div class="row"><span class="role">Software Engineer</span><span class="dt">Mar 2014 – Oct 2014</span></div>
+<div class="row"><span class="co">VTX Software</span><span class="pl">São Paulo, Brazil</span></div>
+<ul><li>Maintained the Node.js API for a mobile wallet product.</li></ul></div>
+
+<div class="job">
+<div class="row"><span class="role">Software Engineer</span><span class="dt">Mar 2011 – Mar 2014</span></div>
+<div class="row"><span class="co">Vizir Software Studio</span><span class="pl">São Paulo, Brazil</span></div>
+<ul><li>First professional web work, mainly with Ruby on Rails and jQuery.</li></ul></div>
+
+<div class="job">
+<div class="row"><span class="role">Software Engineer</span><span class="dt">Mar 2010 – Oct 2011</span></div>
+<div class="row"><span class="co">i9Tec</span><span class="pl">São Paulo, Brazil</span></div>
+<ul><li>Microsoft Dynamics AX solutions. MCP certification in X++. SQL Server and C#.</li></ul></div>
+
+<div class="job">
+<div class="row"><span class="role">Junior Software Engineer</span><span class="dt">Oct 2008 – Mar 2010</span></div>
+<div class="row"><span class="co">RMS Software LTDA</span><span class="pl">São Paulo, Brazil</span></div>
+<ul><li>ERP software. Integrated the product with a government tax system over SOAP. .NET and SQL Server.</li></ul></div>
+
+<h2>Technologies</h2>
+<p><b>AI:</b> Claude Code and AI agent workflows, Model Context Protocol (MCP) servers, AI-assisted code review and upgrade verification, OCR (Tesseract).</p>
+<p><b>Backend:</b> Ruby on Rails, Sidekiq, Node.js, REST APIs, SOAP, C#, .NET.</p>
+<p><b>Web:</b> Hotwire (Turbo, Stimulus), React, Vue.js, AngularJS, JavaScript, HTML, CSS, PWA, AG Grid, Shopify.</p>
+<p><b>Data:</b> PostgreSQL, Redis, MongoDB, Elasticsearch, SQL Server, Hadoop, Apache Pig, AWS Data Pipeline.</p>
+<p><b>Cloud and ops:</b> AWS (S3, Lambda), Terraform, Docker, Kamal, Heroku, GitHub Actions, CI/CD, Datadog, PgHero, Playwright.</p>
+
+<h2>Education</h2>
+<div class="row"><span class="role">Bachelor’s degree, Computer Information Systems</span><span class="dt">Mar 2010 – Dec 2014</span></div>
+<p>Universidade de São Paulo (USP). Extracurricular: organized tech events on campus and taught an introduction to Ruby on Rails twice.</p>
+
+<h2>Languages</h2>
+<p>English (fluent), Spanish (fluent), Portuguese (native).</p>
+</body></html>
