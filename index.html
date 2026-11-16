@@ -293,12 +293,48 @@
     "SQL Server": "https://learn.microsoft.com/sql/sql-server/",
     ".NET": "https://dotnet.microsoft.com",
     "C#": "https://learn.microsoft.com/dotnet/csharp/",
-    "jQuery": "https://jquery.com"
+    "jQuery": "https://jquery.com",
+    "Hotwire": "https://hotwired.dev",
+    "Kamal": "https://kamal-deploy.org",
+    "Hetzner": "https://www.hetzner.com/cloud",
+    "PWA": "https://web.dev/explore/progressive-web-apps"
   };
 
   const COLORS = ["#e4572e", "#1f8a8a", "#c98a0b", "#6b3e8f", "#2f7d4f", "#d6336c"];
 
   const JOBS = [
+    {
+      role: "Founder & Developer", company: "meajudaí (side project)", url: "https://app.meajud.ai",
+      when: "2026 – now", place: "Brazil", flag: "🇧🇷", remote: "Personal project",
+      open: true, inherit: true,
+      stack: ["Ruby on Rails", "PostgreSQL", "Hotwire", "PWA", "Kamal", "Hetzner"],
+      note: "App for Brazilian households: shared expenses with splitting, tasks, shopping lists, budget, fixed bills and civic reminders. Built and run end to end, in production at app.meajud.ai.",
+      projects: [
+        {
+          name: "Product", stack: [],
+          bullets: [
+            "Expense splitting (equal, by amount, by %, multiple payers) and \"who owes whom\" with Pix QR codes.",
+            "Tasks, projects with kanban, recurring bills, budget, savings goals and a monthly overview.",
+            "Public no-login civic reminders (MEI tax, elections, Bolsa Família) via ICS feeds."
+          ]
+        },
+        {
+          name: "Integrations", stack: [],
+          bullets: [
+            "WhatsApp channel (Meta Cloud API) with rule-based Portuguese free-text capture, no LLM.",
+            "MCP server so AI assistants can operate the app directly.",
+            "Receipt OCR with Tesseract; public data from the Brazilian Central Bank and IBGE."
+          ]
+        },
+        {
+          name: "Infrastructure", stack: [],
+          bullets: [
+            "Single Arm VM on Hetzner, deployed with Kamal and pull-based automatic deploys.",
+            "Installable PWA with offline awareness, feature flags and request metrics."
+          ]
+        }
+      ]
+    },
     {
       role: "Senior Software Engineer", company: "ElectionBuddy", url: "https://www.electionbuddy.com",
       when: "Jul 2022 – now", place: "Alberta, Canada", flag: "🇨🇦", remote: "100% remote", canada: true,
