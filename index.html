@@ -82,6 +82,8 @@
   .jobs { list-style: none; }
   .job { background: var(--card); border: 1px solid var(--rule); border-radius: 10px; padding: 22px 24px; margin-bottom: 18px; transition: opacity .3s; }
   .job.dim { opacity: .35; }
+  .job.current { border-left: 3px solid var(--coral); }
+  .now { font-family: var(--mono); font-size: .68rem; letter-spacing: .08em; text-transform: uppercase; color: var(--coral); border: 1px solid currentColor; border-radius: 999px; padding: 1px 7px; margin-left: 8px; vertical-align: middle; }
   .job-head { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 20px; align-items: flex-start; }
   .job h3 { font-family: var(--serif); font-weight: 600; font-size: 1.25rem; line-height: 1.25; }
   .company { font-weight: 500; color: var(--moss); }
@@ -494,7 +496,8 @@
   const jobsEl = document.getElementById("jobs");
   JOBS.forEach(j => {
     const li = document.createElement("li");
-    li.className = "job";
+    const current = /now$/.test(j.when);
+    li.className = current ? "job current" : "job";
     li.dataset.stack = j.stack.join("|");
     const cls = j.canada ? "loc canada" : "loc";
     li.innerHTML = `
@@ -502,7 +505,7 @@
       <summary>
       <div class="job-head">
         <div>
-          <h3>${j.role}</h3>
+          <h3>${j.role}${current ? `<span class="now">Current</span>` : ""}</h3>
           <div class="company">${j.url ? `<a href="${j.url}" target="_blank" rel="noopener">${j.company}</a>` : j.company}</div>
         </div>
         <div class="meta">
