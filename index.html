@@ -297,6 +297,10 @@
     "C#": "https://learn.microsoft.com/dotnet/csharp/",
     "jQuery": "https://jquery.com",
     "Hotwire": "https://hotwired.dev",
+    "Sidekiq": "https://sidekiq.org",
+    "AG Grid": "https://www.ag-grid.com",
+    "Datadog": "https://www.datadoghq.com",
+    "PgHero": "https://github.com/ankane/pghero",
     "Kamal": "https://kamal-deploy.org",
     "Hetzner": "https://www.hetzner.com/cloud",
     "PWA": "https://web.dev/explore/progressive-web-apps"
@@ -341,38 +345,53 @@
       role: "Senior Software Engineer", company: "ElectionBuddy", url: "https://www.electionbuddy.com",
       when: "Jul 2022 – now", place: "Alberta, Canada", flag: "🇨🇦", remote: "100% remote", canada: true,
       open: true, inherit: true,
-      stack: ["Ruby on Rails", "AWS", "PostgreSQL", "Redis"],
-      note: "Rails and PostgreSQL on AWS. Mentor engineers and set code standards.",
+      stack: ["Ruby on Rails", "AWS", "PostgreSQL", "Redis", "Sidekiq", "AG Grid", "Datadog", "PgHero"],
+      note: "Rails and PostgreSQL on AWS. I propose features, keep the platform current and fast, and mentor engineers.",
       projects: [
         {
           name: "Voter platform and integrations", stack: ["Ruby on Rails", "PostgreSQL", "AWS"],
           bullets: [
             "Integration with the HOA API.",
             "Voter import into PostgreSQL.",
-            "Result restriction by plan and billing, which drove upgrades to higher tiers."
+            "Result restriction by plan and billing, which drove upgrades to higher tiers.",
+            "Quorum features for elections."
           ]
         },
         {
-          name: "Quorum features", stack: ["Ruby on Rails", "PostgreSQL"],
-          bullets: ["Quorum features for elections."]
-        },
-        {
-          name: "Platform upkeep", stack: ["Ruby on Rails", "PostgreSQL", "AWS"],
+          name: "Calendar feature, from idea to production", stack: ["Ruby on Rails"],
           bullets: [
-            "Ruby upgrade and code standards.",
-            "PostgreSQL database maintenance.",
-            "Maintenance of internal scripts.",
-            "Took the app from MVP to production on AWS."
+            "Proposed a calendar view to help organizers plan their elections.",
+            "Built the proof of concept and presented it to the team.",
+            "Iterated on feedback until it shipped to production, a large UX gain for customers."
           ]
         },
         {
-          name: "UI revamp", stack: [],
-          bullets: ["Revamp of the application UI."]
+          name: "UI revamp with AG Grid", stack: ["AG Grid"],
+          bullets: [
+            "Rebuilt every data screen on AG Grid.",
+            "Better search, filtering and navigation over large datasets."
+          ]
+        },
+        {
+          name: "Ruby 4, Rails 8 and Sidekiq upgrade", stack: ["Ruby on Rails", "Sidekiq"],
+          bullets: [
+            "Upgraded to Ruby 4, Rails 8 and a current Sidekiq with zero downtime.",
+            "Heavy use of AI to verify each step of the upgrade.",
+            "Earlier: took the app from MVP to production on AWS and kept Ruby and code standards current."
+          ]
+        },
+        {
+          name: "Database performance", stack: ["PostgreSQL", "Datadog", "PgHero"],
+          bullets: [
+            "Self-directed: found slow queries with Datadog and PgHero and turned them into improvement tasks.",
+            "Dropped unused indexes and added new ones where the data showed a need.",
+            "An index on invitations made access-key queries 99% faster."
+          ]
         },
         {
           name: "Team and ownership", stack: [],
           bullets: [
-            "Code reviews for junior developers.",
+            "Code reviews and mentoring for junior developers.",
             "Owner of my projects, from planning through delivery."
           ]
         }
