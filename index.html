@@ -396,7 +396,7 @@
             "Tool-calling loop written by hand on the Anthropic Messages API (Claude Haiku, prompt caching); the same 51-tool MCP catalog serves external assistants and the in-app agent, scoped to the group.",
             "Human in the loop: the agent only proposes expenses, tasks, list items and settlements; nothing is saved until the person confirms.",
             "RAG over expenses with pgvector and a local hashing embedder (no network, no cost), with text-search fallback.",
-            "Evals: retrieval recall@5 0.963 on the tuning set and 0.615 on a frozen held-out set (in CI); agent eval against the real API, 13/13 cases at ~US$0.0003 per question.",
+            "Evals: retrieval recall@5 0.963 on the tuning set and 0.615 on a frozen held-out set (in the test suite); agent eval against the real API, 13/13 cases at ~US$0.0003 per question.",
             "Explicit consent, behind a feature flag, privacy policy naming Anthropic as processor; email never sent to the model."
           ]
         },
