@@ -83,10 +83,15 @@ p { margin: 4px 0; }
 <h2>Projects</h2>
 <div class="job">
 <div class="head">meajudaí — Founder &amp; Developer (side project) <span class="sep">|</span> <span class="dt">2026 – present</span> <span class="sep">|</span> <span class="pl"><a href="https://app.meajud.ai">app.meajud.ai</a></span></div>
-<div class="stack">Stack: Ruby on Rails 8, PostgreSQL, Hotwire (Turbo, Stimulus), PWA, MCP, Claude Code, Docker, Kamal, Hetzner, Playwright</div>
+<div class="stack">Stack: Ruby on Rails 8, PostgreSQL, pgvector, Hotwire (Turbo, Stimulus), PWA, MCP, Anthropic Claude API, Claude Code, Docker, Kamal, Hetzner, Playwright</div>
 <ul>
 <li>Built and operate a Rails + PostgreSQL app for Brazilian households: expense splitting (equal, by amount, by %, multiple payers), settlements with Pix QR codes, tasks and kanban, recurring bills, budgets and savings goals.</li>
 <li>Built an MCP server (Streamable HTTP) so AI assistants can read and write the app’s data, every call scoped to the user and group.</li>
+<li>Built an AI agent in Rails (Nov 2026): hand-written tool-calling loop on the Anthropic Messages API with Claude Haiku and prompt caching; one catalog of 51 MCP tools serves both external assistants and the in-app agent, scoped to the group (3 cross-group leaks found and fixed with tests before production).</li>
+<li>Added human-in-the-loop writes: the agent only proposes expenses, tasks, list items and settlements; nothing is saved until the person confirms, with a lock against double taps.</li>
+<li>Built RAG over expenses with pgvector (256-dim, cosine) and a local hashing embedder (no network, no cost), with text-search fallback.</li>
+<li>Wrote evals: retrieval recall@5 of 0.963 on the tuning set and 0.615 on a frozen held-out set, run in the test suite; agent eval against the real API passes 13/13 cases at ~US$0.0003 per question.</li>
+<li>Shipped it LGPD-ready: explicit dated consent, behind a feature flag, inert without an API key, privacy policy naming Anthropic as processor; email never sent to the model.</li>
 <li>Built a WhatsApp channel (Meta Cloud API) with deterministic Portuguese free-text parsing for expenses and tasks.</li>
 <li>Built receipt OCR with Tesseract and measured reading quality against 42 synthetic receipts with an answer key.</li>
 <li>Added per-route request metrics (time, DB time, query count) and a query-budget test that fails when a list screen starts querying per row.</li>
@@ -98,7 +103,7 @@ p { margin: 4px 0; }
 <p><b>Languages:</b> Ruby, SQL, JavaScript, TypeScript, Python, C#.</p>
 <p><b>Backend:</b> Ruby on Rails, Sidekiq (background jobs), Hotwire, Node.js, REST APIs, SOAP, .NET.</p>
 <p><b>Data:</b> PostgreSQL (query optimization, indexing), Redis, Elasticsearch, MongoDB, SQL Server, ETL and data pipelines, Hadoop, Apache Pig, AWS Data Pipeline.</p>
-<p><b>AI:</b> LLM-assisted development (Claude Code), AI agents and agent workflows, Model Context Protocol (MCP) servers, OCR (Tesseract).</p>
+<p><b>AI:</b> LLM applications (Anthropic Claude API), AI agents and tool calling, RAG with pgvector, evals, prompt caching, Model Context Protocol (MCP) servers, LLM-assisted development (Claude Code), OCR (Tesseract).</p>
 <p><b>Cloud and DevOps:</b> AWS (S3, Lambda), Terraform, Docker, Kamal, Heroku, GitHub Actions, CI/CD, Datadog, PgHero.</p>
 <p><b>Frontend and testing:</b> React, Vue.js, AngularJS, AG Grid, HTML, CSS, PWA, Shopify, Playwright.</p>
 
