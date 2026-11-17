@@ -203,7 +203,7 @@
     <div class="hero-text">
     <h1>Jefferson Fernandes</h1>
     <p class="role">Senior Backend Engineer · Ruby on Rails &amp; PostgreSQL · AI agents &amp; MCP</p>
-    <p class="intro">15+ years building software, Ruby on Rails since 2011. At ElectionBuddy I made key PostgreSQL queries 99% faster and upgraded to Ruby 4 and Rails 8 with zero downtime, using AI to verify each step. On the side I run meajudaí, a Rails app in production with an MCP server for AI assistants. Before that: data pipelines on AWS and Hadoop.</p>
+    <p class="intro">15+ years building software, Ruby on Rails since 2011. At ElectionBuddy I made key PostgreSQL queries 99% faster and upgraded to Ruby 4 and Rails 8 with zero downtime, using AI to verify each step. On the side I run meajudaí, a Rails app in production with an MCP server for AI assistants and an in-app AI agent (tool calling, RAG with pgvector, evals). Before that: data pipelines on AWS and Hadoop.</p>
     <p class="intro">São Paulo, Brazil · UTC−3 · remote</p>
     <div class="markets" aria-label="Markets worked in">
       <span class="market">🇨🇦 Canada · 100% remote, 2 companies</span>
@@ -379,7 +379,7 @@
       role: "Founder & Developer", company: "meajudaí (side project)", url: "https://app.meajud.ai",
       when: "2026 – now", place: "Brazil", flag: "🇧🇷", remote: "Personal project",
       open: true, inherit: true,
-      stack: ["Ruby on Rails", "PostgreSQL", "Hotwire", "PWA", "MCP", "Claude Code", "Docker", "Kamal", "Hetzner", "Playwright"],
+      stack: ["Ruby on Rails", "PostgreSQL", "pgvector", "Hotwire", "PWA", "MCP", "Anthropic Claude", "Claude Code", "Docker", "Kamal", "Hetzner", "Playwright"],
       note: "App for Brazilian households: shared expenses with splitting, tasks, shopping lists, budget, fixed bills and civic reminders. Built and run end to end, in production at app.meajud.ai.",
       projects: [
         {
@@ -388,6 +388,16 @@
             "Expense splitting (equal, by amount, by %, multiple payers) and \"who owes whom\" with Pix QR codes.",
             "Tasks, projects with kanban, recurring bills, budget, savings goals and a monthly overview.",
             "Public no-login civic reminders (MEI tax, elections, Bolsa Família) via ICS feeds."
+          ]
+        },
+        {
+          name: "AI agent: \"Pergunte ao meajudaí\" (Nov 2026)", stack: ["Anthropic Claude", "pgvector", "MCP"],
+          bullets: [
+            "Tool-calling loop written by hand on the Anthropic Messages API (Claude Haiku, prompt caching); the same 51-tool MCP catalog serves external assistants and the in-app agent, scoped to the group.",
+            "Human in the loop: the agent only proposes expenses, tasks, list items and settlements; nothing is saved until the person confirms.",
+            "RAG over expenses with pgvector and a local hashing embedder (no network, no cost), with text-search fallback.",
+            "Evals: retrieval recall@5 0.963 on the tuning set and 0.615 on a frozen held-out set (in CI); agent eval against the real API, 13/13 cases at ~US$0.0003 per question.",
+            "Explicit consent, behind a feature flag, privacy policy naming Anthropic as processor; email never sent to the model."
           ]
         },
         {
